@@ -85,26 +85,31 @@
            <input type="text" class="form-control" id="validationDefault04" name="idade" placeholder="Anos" required>
          </div>
        </div>
-       <button class="btn btn-dark" type="submit">Enviar</button>
+       <button class="btn btn-dark" type="submit" name="enviar">Enviar</button>
      </form>
    </div>
    </div>
 
    <?php
-    $dados = [
-      "nome" => filter_input(INPUT_POST, "nome"),
-      "sobrenome" => filter_input(INPUT_POST, "sobrenome"),
-      "cpf" => filter_input(INPUT_POST, "cpf"),
-      "cidade" => filter_input(INPUT_POST, "cidade"),
-      "cep" => filter_input(INPUT_POST, "cep"),
-      "estado" => filter_input(INPUT_POST, "estado"),
-      "usuario" => filter_input(INPUT_POST, "usuario"),
-      "data_nascimento" => filter_input(INPUT_POST, "datanascimento"),
-      "idade" => filter_input(INPUT_POST, "idade")
 
-    ];
-    $incluir = new Create();
-    $incluir->ExeCreate("clientes", $dados);
+    if(filter_input(INPUT_POST, "enviar")){
+      $dados = [
+        "nome" => filter_input(INPUT_POST, "nome"),
+        "sobrenome" => filter_input(INPUT_POST, "sobrenome"),
+        "cpf" => filter_input(INPUT_POST, "cpf"),
+        "cidade" => filter_input(INPUT_POST, "cidade"),
+        "cep" => filter_input(INPUT_POST, "cep"),
+        "estado" => filter_input(INPUT_POST, "estado"),
+        "usuario" => filter_input(INPUT_POST, "usuario"),
+        "data_nascimento" => filter_input(INPUT_POST, "datanascimento"),
+        "idade" => filter_input(INPUT_POST, "idade")
+  
+      ];
+      $incluir = new Create();
+      $incluir->ExeCreate("clientes", $dados);
+    }
+
+    
 
     //var_dump($dados)
 
