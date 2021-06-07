@@ -1,0 +1,7 @@
+.carousel-fade .carousel-item, .carousel-item img  {
+  max-height: 90vh;
+}
+
+body{
+  background-color: #000;
+}
