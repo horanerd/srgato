@@ -13,29 +13,29 @@
        <div class="form-row mt-3">
          <div class="col-md-4 mb-3">
            <label for="nome">Nome</label>
-           <input type="text" class="form-control" id="nome" placeholder="Nome" name="nome" required>
+           <input type="text" class="form-control" id="nome" placeholder="Nome" value="<?= filter_input(INPUT_POST, "nome") ?>" name="nome" required>
          </div>
          <div class="col-md-4 mb-3">
            <label for="Sobrenome">Sobrenome</label>
-           <input type="text" class="form-control" id="Sobrenome" placeholder="Sobrenome" name="sobrenome" required>
+           <input type="text" class="form-control" id="Sobrenome" placeholder="Sobrenome" value="<?= filter_input(INPUT_POST, "sobrenome") ?>" name="sobrenome" required>
          </div>
          <div class="col-md-3 mb-3">
            <label for="CPF">CPF</label>
-           <input type="text" class="form-control" id="validationDefault05" placeholder="CPF" name="cpf" required>
+           <input type="text" class="form-control" id="validationDefault05" placeholder="CPF" name="cpf" value="<?= filter_input(INPUT_POST, "cpf") ?>" required>
          </div>
        </div>
        <div class="form-row mt-3">
          <div class="col-md-4 mb-3">
            <label for="validationDefault03">Cidade</label>
-           <input type="text" class="form-control" id="validationDefault03" placeholder="Cidade" name="cidade" required>
+           <input type="text" class="form-control" id="validationDefault03" placeholder="Cidade" value="<?= filter_input(INPUT_POST, "cidade") ?>" name="cidade" required>
          </div>
          <div class="col-md-3 mb-3">
            <label for="validationDefault05">CEP</label>
-           <input type="text" class="form-control" id="validationDefault05" placeholder="CEP" name="cep" required>
+           <input type="text" class="form-control" id="validationDefault05" placeholder="CEP" value="<?= filter_input(INPUT_POST, "cep") ?>" name="cep" required>
          </div>
          <div class="col-md-3 mb-3">
            <label for="validationDefault04">Estado</label>
-           <select class="form-control" id="exampleFormControlSelect1" placeholder="UF" name="estado" required>
+           <select class="form-control" id="exampleFormControlSelect1" placeholder="UF" value="<?= filter_input(INPUT_POST, "estado") ?>" name="estado" required>
              <option>AC</option>
              <option>AL</option>
              <option>AP</option>
@@ -73,7 +73,7 @@
              <div class="input-group-prepend">
                <span class="input-group-text" id="inputGroupPrepend2">@</span>
              </div>
-             <input type="text" class="form-control" id="validationDefaultUsername" name="usuario" placeholder="Usuário" aria-describedby="inputGroupPrepend2" required>
+             <input type="text" class="form-control" id="validationDefaultUsername" name="usuario" placeholder="Usuário" value="<?= filter_input(INPUT_POST, "usuario") ?>" aria-describedby="inputGroupPrepend2" required>
            </div>
          </div>
          <div class="col-md-3 mb-3">
@@ -82,17 +82,17 @@
          </div>
          <div class="col-md-3 mb-3">
            <label for="validationDefault04">Idade</label>
-           <input type="text" class="form-control" id="validationDefault04" name="idade" placeholder="Anos" required>
+           <input type="text" class="form-control" id="validationDefault04" name="idade" placeholder="Anos" value="<?= filter_input(INPUT_POST, "idade") ?>" required>
          </div>
        </div>
-       <button class="btn btn-dark" type="submit" name="enviar">Enviar</button>
+       <input class="btn btn-dark" type="submit" name="enviar" value="ENVIAR">
      </form>
    </div>
    </div>
 
    <?php
 
-    if(filter_input(INPUT_POST, "enviar")){
+    if (filter_input(INPUT_POST, "enviar")) {
       $dados = [
         "nome" => filter_input(INPUT_POST, "nome"),
         "sobrenome" => filter_input(INPUT_POST, "sobrenome"),
@@ -103,13 +103,20 @@
         "usuario" => filter_input(INPUT_POST, "usuario"),
         "data_nascimento" => filter_input(INPUT_POST, "datanascimento"),
         "idade" => filter_input(INPUT_POST, "idade")
-  
+
       ];
       $incluir = new Create();
+
       $incluir->ExeCreate("clientes", $dados);
+
+      if ($incluir->getResult() != null) {
+        echo "Cadastrado com sucesso com o id " . $incluir->getResult();
+      } else {
+        echo "Erro ao cadastrar";
+      }
     }
 
-    
+
 
     //var_dump($dados)
 
