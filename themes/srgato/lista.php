@@ -6,10 +6,7 @@
             <h1>CLIENTES CADASTRADOS</h1>
         </div>
 
-
-
-
-    <table class="table table-bordered table-dark mt-3">
+        <table class="table table-bordered table-dark mt-3">
         <thead>
           <tr>
             <th scope="col">Codigo</th>
@@ -24,28 +21,42 @@
             <th scope="col">Usuario</th>
         </tr>
         </thead>
+    
+    <?php $usuario = new Read(); 
+
+      $usuario->ExeRead("clientes");
+      
+      foreach($usuario->getResult() as $user):
+
+      
+
+      
+    
+    ?>
+
+
+    
         <tbody>
           <tr>
-            <th scope="row">1</th>
-            <td>Mark</td>
-            <td>Otto</td>
-            <td>@mdo</td>
+            <th scope="row"><?= $user["id"]?></th>
+            <td><?= $user["nome"]?></td>
+            <td><?= $user["sobrenome"]?></td>
+            <td><?= $user["cpf"]?></td>
+            <td><?= $user["cidade"]?></td>
+            <td><?= $user["cep"]?></td>
+            <td><?= $user["estado"]?></td>
+            <td><?= $user["data_nascimento"]?></td>
+            <td><?= $user["idade"]?></td>
+            <td><?= $user["usuario"]?></td>
+            
           </tr>
-          <tr>
-            <th scope="row">2</th>
-            <td>Jacob</td>
-            <td>Thornton</td>
-            <td>@fat</td>
-          </tr>
-          <tr>
-            <th scope="row">3</th>
-            <td colspan="2">Larry the Bird</td>
-            <td>@twitter</td>
-          </tr>
+          
+          
         </tbody>
+      
+
+      <?php endforeach ?>
       </table>
-
-
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
