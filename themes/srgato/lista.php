@@ -6,7 +6,7 @@
             <h1>CLIENTES CADASTRADOS</h1>
         </div>
 
-        <table class="table table-bordered table-dark mt-3">
+        <table class="table table-bordered table-dark mt-3 text-center">
         <thead>
           <tr>
             <th scope="col">Codigo</th>
@@ -19,6 +19,8 @@
             <th scope="col">Data de Nascimento</th>
             <th scope="col">Idade</th>
             <th scope="col">Usuario</th>
+            <th scope="col">Ação</th>
+            
         </tr>
         </thead>
     
@@ -28,14 +30,8 @@
       
       foreach($usuario->getResult() as $user):
 
-      
-
-      
-    
     ?>
 
-
-    
         <tbody>
           <tr>
             <th scope="row"><?= $user["id"]?></th>
@@ -48,12 +44,11 @@
             <td><?= $user["data_nascimento"]?></td>
             <td><?= $user["idade"]?></td>
             <td><?= $user["usuario"]?></td>
+            <th scope="col"><button class="btn btn-danger"> Deletar </button></th>
             
           </tr>
-          
-          
+ 
         </tbody>
-      
 
       <?php endforeach ?>
       </table>

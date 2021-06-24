@@ -13,7 +13,7 @@
         <div class="bd-example mt-3">
           <div class="card-deck">
             <div class="card">
-              <img class="card-img-top" data-src="holder.js/100px180/" alt="100%x180" src="../css/assets/Tattoos/184900405_3859274017474066_7128034753333017089_n.jpg" data-holder-rendered="true" style="height: 180px; width: 100%; display: block;">
+              <img class="card-img-top" data-src="holder.js/100px180/" alt="100%x180" src="<?= REQUIRE_PATH?>/css/assets/Tattoos/184900405_3859274017474066_7128034753333017089_n.jpg" data-holder-rendered="true" style="height: 180px; width: 100%; display: block;">
               <div class="card-body">
                 <h5 class="card-title">Título do card</h5>
                 <p class="card-text">Este é um card maior com suporte a texto embaixo, que funciona como uma introdução a um conteúdo adicional. Este conteúdo é um pouco maior, para demonstração.</p>
@@ -23,7 +23,7 @@
               </div>
             </div>
             <div class="card">
-              <img class="card-img-top" data-src="holder.js/100px180/" alt="100%x180" src="../css/assets/Tattoos/193913219_307888467485060_1598975272852177310_n.jpg" data-holder-rendered="true" style="height: 180px; width: 100%; display: block;">
+              <img class="card-img-top" data-src="holder.js/100px180/" alt="100%x180" src="<?= REQUIRE_PATH?>/css/assets/Tattoos/193913219_307888467485060_1598975272852177310_n.jpg" data-holder-rendered="true" style="height: 180px; width: 100%; display: block;">
               <div class="card-body">
                 <h5 class="card-title">Título do card</h5>
                 <p class="card-text">Este é um card com suporte a texto embaixo, que funciona como uma introdução a um conteúdo adicional.</p>
